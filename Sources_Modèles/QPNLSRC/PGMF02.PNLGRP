@@ -1,0 +1,94 @@
+000100130926:PNLGRP.
+000101130926:HELP NAME = 'PGMF02' .Aide étendue.
+000102130926:XH1.Ecran PGMF02.
+000103130926:P.
+000104130926Cet écran permet d'éditer les données d'un employé.
+000105130926:P.
+000106130926En mode création, le numéro de matricule sera calculé.
+000107130926:P.
+000108130926Les seules zones obligatoires sont le nom et la fonction.
+000109130926La date d'entrée sera, par défaut, la date du jour de saisie.
+000110130926:P.
+000111130926Les touches de fonction.
+000112130926:UL.
+000113130926:LI. F3 et F12 pour quitter le programme.
+000114130926:LI. F4 invite sur la fonction.
+000115130926:LI. F15 valide la suppression d'un enregistrement.
+000116130926:EUL.
+000117130926:EHELP.
+000118130926:HELP NAME = 'ZMATR' .PGMF02.
+000119130926:H1.Matricule.
+000120130926:P.
+000121130926Le numéro de matricule est calculé automatiquement lors de la création.
+000122130926Aucune modification n'est admise.
+000123130926:EHELP.
+000124130926:HELP NAME = 'ZFCOD'.PGMF02.
+000125130926:H1.Code fonction.
+000126130926:P.
+000127130926Ce code est obligatoire et doit correspondre  un code existant.
+000128130926:EHELP.
+000129130926:HELP NAME = 'ZNOM'.PGMF02.
+000130130926:H1.Nom de l'employé.
+000131130926:P.
+000132130926Cette zone est obligatoire.
+000133130926:EHELP.
+000134130926:HELP NAME = 'ZPR1'.PGMF02.
+000135130926:H1.Prénom.
+000136130926:P.
+000137130926Zone facultative. Ne saisir qu'un seul prénom.
+000138130926:EHELP.
+000139130926:HELP NAME = 'ZPR2'.PGMF02.
+000140130926:H1.Autres prénoms.
+000141130926:P.
+000142130926Zone facultative. On peut saisir plusieurs prénoms,
+000143130926séparés par une virgule.
+000144130926:EHELP.
+000145130926:HELP NAME = 'ZAD1'.PGMF02.
+000146130926:H1.Adresse 1.
+000147130926:P.
+000148130926Zone obligatoire. Modification autorisée.
+000149130926:EHELP.
+000150130926:HELP NAME = 'ZAD2'.PGMF02.
+000151130926:H1.Adresse 2.
+000152130926:P.
+000153130926Zone facultative.
+000154130926:EHELP.
+000155130926:HELP NAME = 'ZAD3'.PGMF02.
+000156130926:H1.Adresse 3.
+000157130926:P.
+000158130926Zone facultative.
+000159130926:EHELP.
+000160130926:HELP NAME = 'ZCPO'.PGMF02.
+000161130926:H1.Code postal.
+000162130926:P.
+000163130926Zone recommandée. Il n'y a pas de contrle.
+000164130926:EHELP.
+000165130926:HELP NAME = 'ZVIL'.PGMF02.
+000166130926:H1.Ville.
+000167130926:P.
+000168130926Zone recommandée. Il n'y a pas de contrle.
+000169130926:EHELP.
+000170130926:HELP NAME = 'ZTEL'.PGMF02.
+000171130926:H1.Téléphone.
+000172130926:P.
+000173130926Zone recommandée. Il n'y a pas de contrle.
+000174130926:EHELP.
+000175130926:HELP NAME = 'ZPOR'.PGMF02.
+000176130926:H1.Portable.
+000177130926:P.
+000178130926Zone recommandée. Il n'y a pas de contrle.
+000179130926Mais il vaut mieux saisir en cas d'urgence.
+000180130926:EHELP.
+000181130926:HELP NAME = 'ZDAE'.PGMF02.
+000182130926:H1.Date d'entrée dans la société.
+000183130926:P.
+000184130926Zone obligatoire. Il n'y a pas de contrle en cas de saisie
+000185130926par défaut c'est la date du jour.
+000186130926:EHELP.
+000187130926:HELP NAME = 'ZDAS'.PGMF02.
+000188130926:H1.Date de sortie de la société.
+000189130926:P.
+000190130926Zone obligatoire lors du licenciement.
+000191130926Ou tout cas de départ.
+000192130926:EHELP.
+000193130926:EPNLGRP.

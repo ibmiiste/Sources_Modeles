@@ -1,0 +1,38 @@
+000100131129            /*******************************************************************/
+000101131129            /*          ROUTAGE D'UN SPOULE VERS UNE OUT Q                     */
+000102131129            /*******************************************************************/
+000103131129             PGM        PARM(&PMAT)
+000104131129             /*          DECLARATION DES VARIABLES                                        */
+000105131129             DCL        VAR(&PMAT) TYPE(*CHAR) LEN(10)
+000106131129             DCL        VAR(&PUSR) TYPE(*CHAR) LEN(10)
+000107131129             DCL        VAR(&PNREC) TYPE(*DEC) LEN(10)
+000108131129             /*          LE FICHIER D'IMPRESSION                                          */
+000109131129             DCLF       FILE(FIO00P) OPNID(A1)
+000110131129             DCLF       FILE(QTEMP/FIO00P) OPNID(A2)
+000111131129             /*          LE PROFIL UTILISATEUR                                            */
+000112131129             RTVJOBA    USER(&PUSR)
+000113131129             /*          METHODE PAR LECTURE DU FICHIER DES OUTQ                          */
+000114131129 LECT:       RCVF       OPNID(A1)
+000115131129/* TEST SI FIN DE FICHIER DONC PAS DE ROUTAGE                      */
+000116131129             MONMSG     MSGID(CPF0864) EXEC(GOTO CMDLBL(APPEL))
+000117131129             IF         COND((&PUSR = &A1_FOUSR) *AND (&A1_FODOC = 'PGMF20PR')) THEN(DO)
+000119131129/* ON A TROUVE L'UTILISATEUR DANS FICHIER                          */
+000120131129                OVRPRTF    FILE(PGMF20PR) TOFILE(PGMF20PR) OUTQ(*LIBL/&A1_FOOUQ)
+000122131129                GOTO       CMDLBL(COPIE)
+000123131129
+000124131129             ENDDO
+000125131129/* PAS TROUVE ON RECOMMENCE                                        */
+000126131129             GOTO       CMDLBL(LECT)
+000127131129/* AUTRE METHODE NON UTILISEE                                      */
+000128131129 COPIE:      CPYF       FROMFILE(FIO00P) TOFILE(QTEMP/FIO00P) MBROPT(*REPLACE) CRTFILE(*YES) +
+000129131129                          INCREL((*IF FOUSR *EQ &PUSR) (*AND FODOC *EQ 'PGMF20PR'))
+000132131129             RTVMBRD    FILE(QTEMP/FIO00P) NBRCURRCD(&PNREC)
+000133131129             IF         COND(&PNREC *NE 0) THEN(DO)
+000134131129/* ON A TROUVE L'UTILISATEUR DANS FICHIER                          */
+000135131129                RCVF       OPNID(A2)
+000136131129
+000137131129                OVRPRTF    FILE(PGMF20PR) TOFILE(PGMF20PR) OUTQ(*LIBL/&A2_FOOUQ)
+000139131129             ENDDO
+000140131129
+000141131129 APPEL:      CALL       PGM(PGMF20) PARM(&PMAT)
+000142131129             ENDPGM

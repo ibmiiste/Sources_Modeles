@@ -1,0 +1,115 @@
+000010150713     A*%%TS  SD  20150713  134652  DEVOD       REL-V6R1M0  5761-WDS
+000020150713     A*%%EC
+000030150713     A                                      DSPSIZ(24 80 *DS3)
+000040150713     A                                      MSGLOC(24)
+000050150713     A                                      PRINT
+000060150713     A                                      HLPTITLE('Aide générale sur PGMF01')
+000070150713     A                                      HLPPNLGRP(PGMF01 PGMF01)
+000080150713     A                                      INDARA
+000090150713     A                                      ALTHELP(CA01)
+000100150713     A                                      HELP
+000110131028     A          R SFL01                     SFL
+000120131028     A  08                                  SFLNXTCHG
+000130131028     A            ZOPT           2   B  8  2
+000140131028     A  20                                  DSPATR(PR)
+000150131028     A            ZNOM          35   O  8  6
+000160131028     A  30                                  COLOR(RED)
+000170131028     A            ZPR1          10   O  8 42
+000180131028     A            ZFONC         10   O  8 53
+000190131028     A            ZMATR         10  0O  8 64
+000200131028     A                                      EDTCDE(Z)
+000210131028     A            ZCPO           5   O  8 75
+000220131028     A            HNREC         10  0H
+000230131028     A            HTOUT          1   H
+000240131028     A            HMATR         10  0H
+000250131028     A          R FORE1                     SFLCTL(SFL01)
+000260131028     A                                      RTNCSRLOC(&WLICSR &WZOCSR &WPRCSR)
+000270131028     A                                      OVERLAY
+000280131028     A                                      PUTOVR
+000290131028     A N07                                  ROLLUP(02)
+000300131028     A                                      CSRLOC(WLIGN WCOLN)
+000310131028     A                                      CHANGE(91)
+000320131028     A N04                                  ERASE(SFL01)
+000330131028     A  04                                  SFLDSP
+000340131028
+000350131028     A  05                                  SFLDSPCTL
+000360131028     A  06                                  SFLCLR
+000370131028     A  07                                  SFLEND
+000380131028     A                                      SFLSIZ(15)
+000390131028     A                                      SFLPAG(14)
+000400131028     A                                      SFLCSRRRN(&WRACSR)
+000410131028     A            WRACSR         5S 0H
+000420131028     A            WRAN01         4S 0H      SFLRCDNBR
+000430131028     A            ZPGM          10   O  1  2
+000440131028     A                                      OVRDTA
+000450131028     A                                  1 31'Liste du personnel'
+000460131028     A                                      COLOR(WHT)
+000470131028     A            ZUSER         10   O  1 70
+000480131028     A                                      OVRDTA
+000490131028     A            ZDATE          8  0O  2  2
+000500131028     A                                      EDTWRD('  /  /    ')
+000510131028     A                                      OVRDTA
+000520131028     A            ZHEUR          6  0O  2 14
+000530131028     A                                      EDTWRD('  :  :  ')
+000540131028     A                                      OVRDTA
+000550131028     A            ZJOB          10   O  2 70
+000560131028     A                                      OVRDTA
+000570131028     A                                  4  3'Indiquez vos options, puis appuyez-
+000580131028     A                                       sur ENTREE.'
+000590131028     A                                      COLOR(BLU)
+000600131028     A                                  5  3'2=Modifier  3=Copier -
+000610131028     A                                      4=Supprimer   5=Afficher  -
+000620131028     A                                      6=Imprimer  99=Fin de contrat'
+000630131028     A                                      COLOR(BLU)
+000640131028     A                                  6  3'Selection par nom :'
+000650131028     A            ZSNOM         35   B  6 23
+000660131028     A                                      CHECK(LC)
+000670131028     A                                      COLOR(WHT)
+000680131028     A                                      OVRDTA
+000690131028     A                                  7  2'Opt Nom                           -
+000700131028     A                                            Prénom     Fonction   Matricu-
+000710131028     A                                      le  CP'
+000720131028     A                                      COLOR(WHT)
+000730131028     A            WLICSR        10A  H
+000740131028     A            WZOCSR        10A  H
+000750131028     A            WPRCSR         4S 0H
+000760131028     A            WLIGN          3S 0H
+000770131028     A            WCOLN          3S 0H
+000780131028     A          R FORB1
+000790131028     A                                      CF03
+000800131028     A                                      CF05
+000810131028     A                                      CF06
+000820131028     A                                      CF08
+000830131028     A                                      CF12
+000840131028     A                                      RTNCSRLOC(&WLICSR &WZOCSR &WPRCSR)
+000850131028     A                                      OVERLAY
+000860131028     A                                      PUTOVR
+000870131028     A                                      CSRLOC(WLIGN WCOLN)
+000880131028     A                                      CHANGE(91)
+000890131028     A                                      HLPCLR
+000900131028     A          H                           HLPARA(6 23 6 58)
+000910131028     A                                      HLPPNLGRP('ZSNOM' PGMF01)
+000920131028     A          H                           HLPARA(8 2 22 3)
+000930131028     A                                      HLPPNLGRP('ZOPT' PGMF01)
+000940131028     A                                 23  3'F3=Exit  F5=Réafficher  -
+000950131028     A                                      F6=Créer  F8=Imprimer  -
+000960131028     A                                      F12=Annuler'
+000970131028     A                                      COLOR(BLU)
+000980131028     A            WLICSR        10A  H
+000990131028     A            WZOCSR        10A  H
+001000131028     A            WPRCSR         4S 0H
+001010131028     A            WLIGN          3S 0H
+001020131028     A            WCOLN          3S 0H
+001030131028     A          R WSFMSG                    SFL
+001040131028     A                                      SFLMSGRCD(24)
+001050131028     A            WMGKEY                    SFLMSGKEY
+001060131028     A            WPGMQ                     SFLPGMQ
+001070131028     A          R WSFCTL                    SFLCTL(WSFMSG)
+001080131028     A                                      SFLSIZ(2)
+001090131028     A                                      SFLPAG(1)
+001100131028     A                                      OVERLAY
+001110131028     A  10                                  SFLINZ
+001120131028     A                                      SFLDSP
+001130131028     A                                      SFLDSPCTL
+001140131028     A  09                                  SFLEND
+001150131028     A            WPGMQ                     SFLPGMQ

@@ -1,0 +1,36 @@
+000001131128           /*********************************************************************/
+000002131128           /*          AFFICHAGE DES MESSAGES CC LE 15/01/2009                  */
+000003131128           /*********************************************************************/
+000004131128             PGM        PARM(&PTYP &PFICM &PMGID &PMGDT)
+000005131128 /* DECLARATION DES VARIABLES                                      */
+000006131128             DCL        VAR(&PTYP) TYPE(*CHAR) LEN(1)
+000007131128             DCL        VAR(&PFICM) TYPE(*CHAR) LEN(10)
+000008131128             DCL        VAR(&PMGID) TYPE(*CHAR) LEN(7)
+000009131128             DCL        VAR(&PMGDT) TYPE(*CHAR) LEN(99)
+000010131128 /* MESSAGE TYPE 1 = DEF = INFO                                */
+000011131128             IF         COND(&PTYP = '1') THEN(DO)
+000012131128                SNDPGMMSG  MSGID(&PMGID) MSGF(*LIBL/&PFICM) MSGDTA(&PMGDT)
+000013131128                MONMSG     MSGID(CPF0000)
+000014131128                GOTO       CMDLBL(FINI)
+000015131128             ENDDO
+000016131128 /* MESSAGE TYPE 2   *STATUS                                   */
+000017131128             IF         COND(&PTYP = '2') THEN(DO)
+000018131128                SNDPGMMSG  MSGID(&PMGID) MSGF(*LIBL/&PFICM) MSGDTA(&PMGDT) TOPGMQ(*EXT) +
+000019131128                             MSGTYPE(*STATUS)
+000020131128                MONMSG     MSGID(CPF0000)
+000021131128                GOTO       CMDLBL(FINI)
+000022131128             ENDDO
+000023131128 /* NETTOYAGE VIEUX MESSAGES                                   */
+000024131128             IF         COND(&PTYP = '3') THEN(DO)
+000025131128                RMVMSG     PGMQ(*PRV) CLEAR(*OLD)
+000026131128                MONMSG     MSGID(CPF0000)
+000027131128                GOTO       CMDLBL(FINI)
+000028131128             ENDDO
+000029131128 /* NETTOYAGE TOTAL                                            */
+000030131128             IF         COND(&PTYP = '4') THEN(DO)
+000031131128                RMVMSG     PGMQ(*PRV) CLEAR(*ALL)
+000032131128                MONMSG     MSGID(CPF0000)
+000033131128                GOTO       CMDLBL(FINI)
+000034131128             ENDDO
+000035131128 /* LA FIN */
+000036131128 FINI:       ENDPGM

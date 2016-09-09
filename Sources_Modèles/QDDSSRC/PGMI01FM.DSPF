@@ -1,0 +1,90 @@
+000100131127     A                                      DSPSIZ(24 80 *DS3)
+000101131127     A                                      MSGLOC(24)
+000102131127     A                                      PRINT
+000103131127     A                                      HELP
+000104131127     A                                      HLPPNLGRP('PGMI01' PGMI01)
+000105131127     A                                      HLPTITLE('Invite sur fonction')
+000106131127     A                                      ALTHELP(CA01)
+000107131127     A                                      CHECK(RLTB)
+000108131127     A          R FO0001
+000109131127     A                                      KEEP
+000110131127     A                                      ASSUME
+000111131127     A                                      PUTOVR
+000112131127     A                                 24 80' '
+000113131127     A          R SFL01                     SFL
+000114131127     A  08                                  SFLNXTCHG
+000115131127     A            ZOPT           1A  B  4  1
+000116131127     A N13                                  DSPATR(UL)
+000117131127     A  13                                  DSPATR(PR)
+000118131127     A                                      COLOR(WHT)
+000119131127     A            ZFCT           3A  O  4  3
+000120131127     A            ZLIB          35A  O  4  8
+000121131127     A            HNUMREC        8S 0H
+000122131127     A          R FORE1                     SFLCTL(SFL01)
+000123131127     A N07                                  ROLLUP(02)
+000124131127     A                                      CHANGE(91)
+000125131127     A                                      KEEP
+000126131127     A                                      RTNCSRLOC(&WLICSR &WZOCSR &WPRCSR)
+000127131127     A                                      CSRLOC(WLIGN      WCOLN)
+000128131127     A                                      OVERLAY
+000129131127     A                                      PUTOVR
+000130131127     A N04                                  ERASE(SFL01)
+000131131127     A                                      SFLCSRRRN(&WRACSR)
+000132131127     A  04                                  SFLDSP
+000133131127
+000134131127     A  05                                  SFLDSPCTL
+000135131127     A  06                                  SFLCLR
+000136131127     A  07                                  SFLEND
+000137131127     A                                      SFLSIZ(0013)
+000138131127     A                                      SFLPAG(0012)
+000139131127     A                                      WINDOW(&WINLIG &WINCOL 17 42 *NOMSG-
+000140131127     A                                      LIN)
+000141131127     A                                      WDWBORDER((*COLOR TRQ) (*DSPATR RI)-
+000142131127     A                                       (*CHAR '        '))
+000143131127     A N11                                  USRRSTDSP
+000144131127     A            WRACSR         5S 0H
+000145131127     A            WRAN01         4S 0H      SFLRCDNBR
+000146131127     A            ZPGM          10A  O  1  1OVRDTA
+000147131127     A                                  1 16'Liste des Fonctions'
+000148131127     A                                      COLOR(WHT)
+000149131127     A                                  2  1'1=Choisir'
+000150131127     A                                      COLOR(BLU)
+000151131127     A  13                                  DSPATR(ND)
+000152131127     A                                  3  1'O Code Libellé'
+000153131127     A                                      COLOR(WHT)
+000154131127     A            WLICSR        10A  H
+000155131127     A            WZOCSR        10A  H
+000156131127     A            WPRCSR         4S 0H
+000157131127     A            WLIGN          3S 0H
+000158131127     A            WCOLN          3S 0H
+000159131127     A            WINLIG         2S 0P
+000160131127     A            WINCOL         3S 0P
+000161131127     A          R FORB1
+000162131127     A                                      WINDOW(FORE1)
+000163131127     A                                      CF03
+000164131127     A                                      CF12
+000165131127     A                                      RTNCSRLOC(&WLICSR &WZOCSR &WPRCSR)
+000166131127     A                                      OVERLAY
+000167131127     A                                      PUTOVR
+000168131127     A                                      CSRLOC(WLIGN      WCOLN)
+000169131127     A                                      CHANGE(91)
+000170131127     A                                 17  1'F3=Exit     F12=Précédent'
+000171131127     A                                      COLOR(BLU)
+000172131127     A            WLICSR        10A  H
+000173131127     A            WZOCSR        10A  H
+000174131127     A            WPRCSR         4S 0H
+000175131127     A            WLIGN          3S 0H
+000176131127     A            WCOLN          3S 0H
+000177131127     A          R WSFMSG                    SFL
+000178131127     A                                      SFLMSGRCD(24)
+000179131127     A            WMGKEY                    SFLMSGKEY
+000180131127     A            WPGMQ                     SFLPGMQ
+000181131127     A          R WSFCTL                    SFLCTL(WSFMSG)
+000182131127     A                                      SFLSIZ(2)
+000183131127     A                                      SFLPAG(1)
+000184131127     A                                      OVERLAY
+000185131127     A  10                                  SFLINZ
+000186131127     A                                      SFLDSP
+000187131127     A                                      SFLDSPCTL
+000188131127     A  09                                  SFLEND
+000189131127     A            WPGMQ                     SFLPGMQ

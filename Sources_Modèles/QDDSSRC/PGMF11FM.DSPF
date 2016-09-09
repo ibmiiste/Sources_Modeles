@@ -1,0 +1,91 @@
+000100131127     A                                      DSPSIZ(24 80 *DS3)
+000101131127     A                                      MSGLOC(24)
+000102131127     A                                      PRINT
+000103131127     A                                      HELP
+000104131127     A                                      HLPPNLGRP('XX' XX)
+000105131127     A                                      HLPTITLE('Détail fonction')
+000106131127     A                                      ALTHELP(CA01)
+000107131127     A          R FORE1
+000108131127     A                                      CF03
+000109131127     A                                      CF12
+000110131127     A                                      CF15
+000111131128     A                                      RTNCSRLOC(&WFMCUR &WZOCUR &WPRCUR)
+000112131127     A                                      PUTOVR
+000113131127     A                                      CSRLOC(WNMLGN WNMCOL)
+000114131127     A                                      CHANGE(91)
+000115131127     A            ZPGM          10   O  1  2
+000116131127     A                                      OVRDTA
+000117131127     A                                  1 31'Détail fonction'
+000118131127     A                                      COLOR(WHT)
+000119131127     A            ZUSER         10   O  1 70
+000120131127     A                                      OVRDTA
+000121131127     A            ZDATE          8  0O  2  2
+000122131127     A                                      EDTWRD('  /  /    ')
+000123131127     A                                      OVRDTA
+000124131127     A            ZHEUR          6  0O  2 14
+000125131127     A                                      EDTWRD('  :  :  ')
+000126131127     A                                      OVRDTA
+000127131127     A            ZMODE         30   O  2 27
+000128131127     A                                      COLOR(WHT)
+000129131127     A                                      OVRDTA
+000130131127     A            ZJOB          10   O  2 70
+000131131127     A                                      OVRDTA
+000132131127     A                                  6 15'Fonction :'
+000133131127     A            ZFCOD          3   B  6 27
+000134131127     A  12                                  DSPATR(UL)
+000135131127     A N12                                  DSPATR(PR)
+000136131127     A                                      COLOR(WHT)
+000137131127     A                                      OVRDTA
+000138131127     A                                      OVRATR
+000139131127     A                                  7 16'Libellé :'
+000140131127     A            ZFLIB         35   B  7 27
+000141131127     A  13                                  DSPATR(UL)
+000142131127     A N13                                  DSPATR(PR)
+000143131127     A                                      CHECK(LC)
+000144131127     A                                      COLOR(WHT)
+000145131127     A                                      OVRDTA
+000146131127     A                                      OVRATR
+000147131127     A                                 18 13'Crée le :'
+000148131127     A            ZDAC           8  0O 18 25
+000149131127     A                                      EDTWRD('  /  /    ')
+000150131127     A                                      COLOR(GRN)
+000151131127     A                                      OVRDTA
+000152131127     A                                 18 37' :'
+000153131127     A            ZHEC           6  0O 18 41
+000154131127     A                                      EDTWRD('  :  :  ')
+000155131127     A                                      OVRDTA
+000156131127     A                                 18 51'par :'
+000157131127     A            ZUSC          10   O 18 57
+000158131127     A                                      OVRDTA
+000159131127     A                                 19 10'Modifié le :'
+000160131127     A            ZDAM           8  0O 19 25
+000161131127     A                                      EDTWRD('  /  /    ')
+000162131127     A                                      COLOR(GRN)
+000163131127     A                                      OVRDTA
+000164131127     A                                 19 37' :'
+000165131127     A            ZHEM           6  0O 19 41
+000166131127     A                                      EDTWRD('  :  :  ')
+000167131127     A                                      OVRDTA
+000168131127     A                                 19 51'par :'
+000169131127     A            ZUSM          10   O 19 57
+000170131127     A                                      OVRDTA
+000171131127     A                                 23  3'F3=Exit   F12=Annuler'
+000172131127     A                                      COLOR(BLU)
+000173131127     A            WFMCUR        10A  H
+000174131127     A            WZOCUR        10A  H
+000175131127     A            WPRCUR         4S 0H
+000176131127     A            WNMLGN         3S 0H
+000177131127     A            WNMCOL         3S 0H
+000178131127     A          R WMGSFL                    SFL
+000179131127     A                                      SFLMSGRCD(24)
+000180131127     A            WMGKEY                    SFLMSGKEY
+000181131127     A            WPGMQ                     SFLPGMQ
+000182131127     A          R WMGCTL                    SFLCTL(WMGSFL)
+000183131127     A                                      SFLSIZ(2)
+000184131127     A                                      SFLPAG(1)
+000185131127     A                                      OVERLAY
+000186131127     A  10                                  SFLINZ
+000187131127     A                                      SFLDSP
+000188131127     A                                      SFLDSPCTL
+000189131127     A  09                                  SFLEND
+000190131127     A            WPGMQ                     SFLPGMQ
